@@ -26,7 +26,7 @@ def home_view(request):
 def time_view(request):
     # обратите внимание – здесь HTML шаблона нет, 
     # возвращается просто текст
-    current_time = datetime.datetime.today().time()
+    current_time = datetime.now().time()
     msg = f'Текущее время: {current_time}'
     return HttpResponse(msg)
 
@@ -36,5 +36,5 @@ def workdir_view(request):
     # который возвращает список файлов в рабочей 
     # директории
     path = '.'
-    msg = f'Список файлов в директории: {os.listdir(path=path)}'
-    raise HttpResponse(msg)
+    msg = f'Список файлов в текущей директории: {os.listdir(path=path)}'
+    return HttpResponse(msg)
